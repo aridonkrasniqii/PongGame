@@ -55,8 +55,15 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 270)
-pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 16, "normal"))
 
+def write_pen():
+    global pen
+    pen.clear()
+    pen.write(f'Player A: {score_a} Player B: {score_b}' , align='center', font=('', 18, "normal"))
+
+
+
+write_pen()
 
 # Functions
 def paddle_a_up():
@@ -93,11 +100,34 @@ window.onkeypress(paddle_a_down, "s")
 window.onkeypress(paddle_b_up, "Up")
 window.onkeypress(paddle_b_down, "Down")
 
+
+# Winner board
+winner = turtle.Turtle()
+winner.shape('square')
+winner.color('white')
+winner.penup()
+winner.hideturtle()
+winner.goto(0 ,30)
+
 # Main game loop
 while True:
     # every time the loop runs it updates the window
     # clear and load it
     window.update()
+
+    if score_a > 0:
+        winner.write('Winner is Player A', align = 'center' ,  font=("Courier", 18, "bold"))
+        time.sleep(5)
+        score_a = 0
+        winner.clear()
+        write_pen()
+
+    if score_b > 0:
+        winner.write("Winner is Player B" , align="center", font=("Courier", 18, "bold"))
+        time.sleep(5)
+        score_b = 0
+        winner.clear()
+        write_pen()
 
     # Move the ball
     ball.setx(ball.xcor() + ball.dx)
@@ -120,16 +150,16 @@ while True:
     if ball.xcor() > 350:
         score_a += 1
         pen.clear()
-        pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 16, "normal"))
-        time.sleep(3)
+        pen.write(f'Player A: {score_a} Player B: {score_b}' , align='center', font=('', 18, "normal"))
+        time.sleep(2)
         ball.goto(0, 0)
         ball.dx *= -1
 
     elif ball.xcor() < -350:
         score_b += 1
         pen.clear()
-        pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 16, "normal"))
-        time.sleep(3)
+        pen.write(f'Player A: {score_a} Player B: {score_b}' , align='center', font=('', 18, "normal"))
+        time.sleep(2)
         ball.goto(0, 0)
         ball.dx *= -1
 
