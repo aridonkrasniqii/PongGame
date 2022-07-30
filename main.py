@@ -115,14 +115,14 @@ while True:
     # clear and load it
     window.update()
 
-    if score_a > 0:
+    if score_a > 4:
         winner.write('Winner is Player A', align = 'center' ,  font=("Courier", 18, "bold"))
         time.sleep(5)
         score_a = 0
         winner.clear()
         write_pen()
 
-    if score_b > 0:
+    if score_b > 4:
         winner.write("Winner is Player B" , align="center", font=("Courier", 18, "bold"))
         time.sleep(5)
         score_b = 0
