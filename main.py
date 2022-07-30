@@ -55,7 +55,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 270)
-pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 16, "normal"))
+pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 16, "normal"))
 
 
 # Functions
@@ -120,7 +120,7 @@ while True:
     if ball.xcor() > 350:
         score_a += 1
         pen.clear()
-        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 16, "normal"))
+        pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 16, "normal"))
         time.sleep(3)
         ball.goto(0, 0)
         ball.dx *= -1
@@ -128,7 +128,7 @@ while True:
     elif ball.xcor() < -350:
         score_b += 1
         pen.clear()
-        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 16, "normal"))
+        pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 16, "normal"))
         time.sleep(3)
         ball.goto(0, 0)
         ball.dx *= -1
